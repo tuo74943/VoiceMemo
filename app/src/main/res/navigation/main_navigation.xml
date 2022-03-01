@@ -16,9 +16,9 @@
     </fragment>
     <fragment
         android:id="@+id/recordingFragment"
-        android:name="edu.temple.voicememoapp.RecordingFragment"
+        android:name="edu.temple.voicememoapp.AddMemoFragment"
         android:label="fragment_recording"
-        tools:layout="@layout/fragment_recording" >
+        tools:layout="@layout/fragment_add_memo" >
         <action
             android:id="@+id/action_recordingFragment_to_dashboard"
             app:destination="@id/dashboard"

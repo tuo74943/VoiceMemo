@@ -8,7 +8,7 @@ import android.widget.ImageButton
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class MemoAdapter(_context: Context, memoList : MutableList<Memo>, onClick: (Memo) -> Unit ) : RecyclerView.Adapter<MemoAdapter.MemoViewHolder>() {
+class MemoAdapter(val context: Context, val memoList : ArrayList<Memo>, val onClick: (Memo) -> Unit ) : RecyclerView.Adapter<MemoAdapter.MemoViewHolder>() {
     class MemoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         val titleTextView = itemView.findViewById<TextView>(R.id.titleView)
         val timeInfo = itemView.findViewById<TextView>(R.id.infoTextView)
@@ -20,9 +20,7 @@ class MemoAdapter(_context: Context, memoList : MutableList<Memo>, onClick: (Mem
             playButton.setOnClickListener{onClick(memo)}
         }
     }
-    val context = _context
-    val memoList = memoList
-    val ocl = onClick
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MemoViewHolder {
         val inflater = LayoutInflater.from(context)
         val view = inflater.inflate(R.layout.memo, parent, false)
@@ -30,7 +28,7 @@ class MemoAdapter(_context: Context, memoList : MutableList<Memo>, onClick: (Mem
     }
 
     override fun onBindViewHolder(holder: MemoViewHolder, position: Int) {
-        holder.bind(memoList[position], ocl)
+        holder.bind(memoList[position], onClick)
     }
 
     override fun getItemCount(): Int {
