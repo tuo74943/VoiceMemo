@@ -1,7 +1,7 @@
 package edu.temple.voicememoapp
 
-class MemoList {
-    private val memos : ArrayList<Memo> by lazy {
+class MemoList{
+    private val memos : MutableList<Memo> by lazy {
         ArrayList()
     }
 
