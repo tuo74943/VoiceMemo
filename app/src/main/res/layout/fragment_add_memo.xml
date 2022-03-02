@@ -10,33 +10,55 @@
         android:id="@+id/titleEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:layout_marginTop="256dp"
         android:hint="Enter Title"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        app:layout_constraintBottom_toTopOf="@+id/addMemmoButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/addMemmoButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="128dp"
         android:text="Add Memo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/infoEditText" />
+        app:layout_constraintStart_toStartOf="parent" />
 
-    <EditText
-        android:id="@+id/infoEditText"
+    <ImageButton
+        android:id="@+id/mediaImageButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Enter description"
-        android:inputType="textPersonName"
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="@+id/titleEditText"
-        app:layout_constraintStart_toStartOf="@+id/titleEditText"
-        app:layout_constraintTop_toBottomOf="@+id/titleEditText" />
+        android:padding="25dp"
+        android:src="@android:drawable/ic_btn_speak_now"
+        app:layout_constraintBottom_toTopOf="@+id/titleEditText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleTextView" />
+
+    <TextView
+        android:id="@+id/titleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:text="Recording Studio (o_o)"
+        android:textSize="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/timeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="total_time"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="@+id/mediaImageButton"
+        app:layout_constraintStart_toStartOf="@+id/mediaImageButton"
+        app:layout_constraintTop_toBottomOf="@+id/mediaImageButton" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

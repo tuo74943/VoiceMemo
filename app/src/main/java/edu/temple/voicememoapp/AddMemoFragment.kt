@@ -23,9 +23,9 @@ class AddMemoFragment : Fragment() {
     val titleEditText : EditText by lazy {
         layout.findViewById(R.id.titleEditText)
     }
-    val infoEditText : EditText by lazy {
-        layout.findViewById(R.id.infoEditText)
-    }
+//    val infoEditText : EditText by lazy {
+//        layout.findViewById(R.id.infoEditText)
+//    }
 
     val addMemoButton : Button by lazy {
         layout.findViewById(R.id.addMemmoButton)
@@ -44,10 +44,10 @@ class AddMemoFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         addMemoButton.setOnClickListener {
-            val title = titleEditText.text.toString()
-            val info = infoEditText.text.toString()
-
-            memoListViewModel.addMemo(Memo(title, info))
+//            val title = titleEditText.text.toString()
+//            val info = infoEditText.text.toString()
+//
+//            memoListViewModel.addMemo(Memo(title, info))
 
             findNavController().navigate(R.id.action_recordingFragment_to_dashboard)
         }
