@@ -8,11 +8,22 @@ import androidx.navigation.Navigation
 
 class MainActivity : AppCompatActivity(), Dashboard.DashboardInterface{
 
+    val memoListViewModel by lazy {
+        ViewModelProvider(this).get(MemoListViewModel::class.java)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         supportActionBar?.title = "Voice Memo's"
+
+        val memoList = MemoList()
+        for(i in 0 .. 10){
+            memoList.addMemo(Memo("Title ${i}", "info ${i}"))
+        }
+
+        memoListViewModel.setMemoList(memoList)
 
     }
 

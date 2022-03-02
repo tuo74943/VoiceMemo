@@ -8,10 +8,17 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import androidx.core.os.bundleOf
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 
 class AddMemoFragment : Fragment() {
 
     lateinit var layout : View
+    val memoListViewModel by lazy {
+        ViewModelProvider(requireActivity()).get(MemoListViewModel::class.java)
+    }
 
     val titleEditText : EditText by lazy {
         layout.findViewById(R.id.titleEditText)
@@ -38,7 +45,10 @@ class AddMemoFragment : Fragment() {
         addMemoButton.setOnClickListener {
             val title = titleEditText.text.toString()
             val info = infoEditText.text.toString()
-            Log.d("INFO", "${title}, ${info}")
+
+            memoListViewModel.addMemo(Memo(title, info))
+
+            findNavController().navigate(R.id.action_recordingFragment_to_dashboard)
         }
     }
 
