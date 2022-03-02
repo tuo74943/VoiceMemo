@@ -42,6 +42,7 @@ class AddMemoFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         addMemoButton.setOnClickListener {
             val title = titleEditText.text.toString()
             val info = infoEditText.text.toString()
@@ -51,5 +52,6 @@ class AddMemoFragment : Fragment() {
             findNavController().navigate(R.id.action_recordingFragment_to_dashboard)
         }
     }
+
 
 }

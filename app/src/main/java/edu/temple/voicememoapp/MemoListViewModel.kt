@@ -15,17 +15,17 @@ class MemoListViewModel : ViewModel(){
 
     fun setMemoList(_memoList : MemoList){
         memolist.setMemos(_memoList)
-        this.memolivelist.value = memolist
+//        this.memolivelist.value = memolist
     }
 
     fun addMemo(_memo : Memo){
         memolist.addMemo(_memo)
-        this.memolivelist.value = memolist
+//        this.memolivelist.value = memolist
     }
 
     fun removeMemo(index : Int){
         memolist.removeMemo(index)
-        this.memolivelist.value = memolist
+//        this.memolivelist.value = memolist
     }
 
     fun getListToObserve() : LiveData<MemoList>{

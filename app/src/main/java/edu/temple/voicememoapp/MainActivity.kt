@@ -2,6 +2,7 @@ package edu.temple.voicememoapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
@@ -19,7 +20,7 @@ class MainActivity : AppCompatActivity(), Dashboard.DashboardInterface{
         supportActionBar?.title = "Voice Memo's"
 
         val memoList = MemoList()
-        for(i in 0 .. 10){
+        for(i in 0 .. 2){
             memoList.addMemo(Memo("Title ${i}", "info ${i}"))
         }
 

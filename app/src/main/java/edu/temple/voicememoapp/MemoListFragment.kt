@@ -29,24 +29,40 @@ class MemoListFragment : Fragment() {
         layout = inflater.inflate(R.layout.fragment_memo_list, container, false)
         recyclerView = layout.findViewById(R.id.memoRecyclerView)
 
+        adapter = MemoAdapter(requireContext(), memoListViewModel.getMemoList(), {memo : Memo -> onClick(memo)})
+        recyclerView.adapter = adapter
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+
         return layout
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        adapter = MemoAdapter(requireContext(), memoListViewModel.getMemoList(), {memo : Memo -> onClick(memo)})
-        recyclerView.adapter = adapter
-        recyclerView.layoutManager = LinearLayoutManager(requireContext())
-
-        memoListViewModel.getListToObserve().observe(requireActivity()){
-            Log.d("observer", "list changed, notifying adapter")
-            adapter.notifyDataSetChanged()
-        }
+//        memoListViewModel.getListToObserve().observe(requireActivity()){
+//            Log.d("observer", "list changed, notifying adapter")
+//            adapter.notifyDataSetChanged()
+//        }
     }
     fun onClick(memo: Memo){
         //what do we want to do when the play button is pressed?
         Log.d("Memo OnClick", "we are pressing the play button on this memo ${memo.title}, ${memo.temp}")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.d("Onresume", "fired")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.d("onpause", "fired")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d("ondestroy", "fired")
+
     }
 
 
